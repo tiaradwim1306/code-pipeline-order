@@ -1,15 +1,13 @@
-FROM public.ecr.aws/w1g5w5w1/node-alpine
-
-ARG NODE_ENV=production
-ARG PORT=8000
-
-ENV PORT=8000
-ENV NODE_ENV=${NODE_ENV}
-
-WORKDIR /usr/src/app
-COPY . .
-RUN npm install
-
-
-EXPOSE 8000
-CMD [ "npm", "run", "start" ]
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+        "Name": "801193623203.dkr.ecr.us-east-1.amazonaws.com/lks-order-image:latest",
+        "Update": "true"
+    },
+    "Ports": [
+        {
+            "ContainerPort": 8000,
+            "HostPort": 80
+        }
+    ]
+}
